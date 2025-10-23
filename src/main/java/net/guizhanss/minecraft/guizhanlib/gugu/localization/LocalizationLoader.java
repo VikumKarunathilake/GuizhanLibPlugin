@@ -26,7 +26,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * 本地化文件加载器
+ * Localization file loader
  *
  * @author ybw0014
  */
@@ -63,14 +63,14 @@ public final class LocalizationLoader {
     }
 
     private void prepareFile() {
-        logger.log(Level.INFO, "开始加载 Minecraft 本地化文件");
-        logger.log(Level.INFO, "当前版本: " + fullVersion);
+        logger.log(Level.INFO, "Starting to load Minecraft localization file");
+        logger.log(Level.INFO, "Current version: " + fullVersion);
 
         try {
             if (!localeFile.exists()) {
-                logger.log(Level.INFO, "当前版本的本地化文件不存在，正在尝试下载");
+                logger.log(Level.INFO, "Localization file for current version does not exist, attempting to download");
 
-                String remoteUrl = "https://cdn.jsdelivr.net/gh/InventivetalentDev/minecraft-assets@" + fullVersion + "/assets/minecraft/lang/zh_cn.json";
+                String remoteUrl = "https://cdn.jsdelivr.net/gh/InventivetalentDev/minecraft-assets@" + fullVersion + "/assets/minecraft/lang/en_US.json";
 
                 HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(remoteUrl))
@@ -82,37 +82,37 @@ public final class LocalizationLoader {
                 InputStream inputStream = response.body();
                 saveToFile(inputStream);
 
-                logger.log(Level.INFO, "已下载当前版本的本地化文件");
+                logger.log(Level.INFO, "Downloaded localization file for current version");
             }
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "加载 Minecraft 本地化资源时发生错误，尝试备用方案", e);
+            logger.log(Level.SEVERE, "Error occurred while loading Minecraft localization resources, trying backup plan", e);
             prepareBackupFile();
         }
     }
 
     private void prepareBackupFile() {
-        logger.log(Level.INFO, "开始加载本地备用 Minecraft 本地化文件（可能不是当前版本最新）");
+        logger.log(Level.INFO, "Starting to load local backup Minecraft localization file (may not be the latest for current version)");
         try {
             int mcVersion = PaperLib.getMinecraftVersion();
             InputStream input;
             while (mcVersion >= 18) {
-                logger.log(Level.INFO, "尝试寻找 1." + mcVersion);
-                final String filename = "/minecraft-lang/1." + mcVersion + "/zh_cn.json";
+                logger.log(Level.INFO, "Trying to find 1." + mcVersion);
+                final String filename = "/minecraft-lang/1." + mcVersion + "/en_US.json";
                 input = GuizhanLib.getInstance().getClass().getResourceAsStream(filename);
                 if (input != null) {
-                    logger.log(Level.INFO, "正在加载 1." + mcVersion);
+                    logger.log(Level.INFO, "Loading 1." + mcVersion);
 
                     saveToFile(input);
 
-                    logger.log(Level.INFO, "已加载 1." + mcVersion);
+                    logger.log(Level.INFO, "Loaded 1." + mcVersion);
                     break;
                 } else {
-                    logger.log(Level.INFO, "1." + mcVersion + " 的本地化文件缺失，正在尝试加载上一个版本");
+                    logger.log(Level.INFO, "Localization file for 1." + mcVersion + " is missing, trying to load previous version");
                     mcVersion--;
                 }
             }
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "加载本地备用 Minecraft 本地化资源失败", e);
+            logger.log(Level.SEVERE, "Failed to load local backup Minecraft localization resources", e);
         }
     }
 
@@ -140,9 +140,9 @@ public final class LocalizationLoader {
             // @formatter:on
             lang.putAll(GSON.fromJson(reader, type));
 
-            logger.log(Level.INFO, "加载成功");
+            logger.log(Level.INFO, "Loading successful");
         } catch (Exception ex) {
-            logger.log(Level.SEVERE, "加载 Minecraft 本地化文件时发生错误", ex);
+            logger.log(Level.SEVERE, "Error occurred while loading Minecraft localization file", ex);
         }
     }
 }

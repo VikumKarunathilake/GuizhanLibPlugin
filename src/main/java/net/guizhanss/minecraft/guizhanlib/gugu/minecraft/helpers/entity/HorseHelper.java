@@ -11,34 +11,34 @@ import javax.annotation.Nonnull;
 import java.util.Map;
 
 /**
- * {@link Horse} 相关
+ * {@link Horse} related utilities
  */
 @UtilityClass
 @SuppressWarnings({"ConstantConditions", "unused"})
 public final class HorseHelper {
 
     private static final Map<Color, String> COLOR_MAP = Map.of(
-        Color.BLACK, "黑色",
-        Color.BROWN, "褐色",
-        Color.CHESTNUT, "栗色",
-        Color.CREAMY, "奶油色",
-        Color.DARK_BROWN, "深褐色",
-        Color.GRAY, "灰色",
-        Color.WHITE, "白色"
+        Color.BLACK, "Black",
+        Color.BROWN, "Brown",
+        Color.CHESTNUT, "Chestnut",
+        Color.CREAMY, "Creamy",
+        Color.DARK_BROWN, "Dark Brown",
+        Color.GRAY, "Gray",
+        Color.WHITE, "White"
     );
 
     private static final Map<Style, String> STYLE_MAP = Map.of(
-        Style.BLACK_DOTS, "黑色斑点",
-        Style.NONE, "无",
-        Style.WHITE, "白色",
-        Style.WHITE_DOTS, "白色斑点",
-        Style.WHITEFIELD, "白色条纹"
+        Style.BLACK_DOTS, "Black Dots",
+        Style.NONE, "None",
+        Style.WHITE, "White",
+        Style.WHITE_DOTS, "White Dots",
+        Style.WHITEFIELD, "White Field"
     );
 
     @Nonnull
     public static String getColorName(@Nonnull Color color) {
         Preconditions.checkNotNull(color);
-        return COLOR_MAP.getOrDefault(color, "未知");
+        return COLOR_MAP.getOrDefault(color, "Unknown");
     }
 
     @Nonnull
@@ -55,7 +55,7 @@ public final class HorseHelper {
     @Nonnull
     public static String getStyleName(@Nonnull Style style) {
         Preconditions.checkNotNull(style);
-        return STYLE_MAP.getOrDefault(style, "未知");
+        return STYLE_MAP.getOrDefault(style, "Unknown");
     }
 
     @Nonnull

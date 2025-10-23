@@ -10,21 +10,21 @@ import javax.annotation.Nonnull;
 import java.util.Map;
 
 /**
- * {@link Fox} 相关
+ * {@link Fox} related utilities
  */
 @UtilityClass
 @SuppressWarnings({"ConstantConditions", "unused"})
 public final class FoxHelper {
 
     private static final Map<Type, String> TYPE_MAP = Map.of(
-        Type.RED, "红狐",
-        Type.SNOW, "雪狐"
+        Type.RED, "Red Fox",
+        Type.SNOW, "Snow Fox"
     );
 
     @Nonnull
     public static String getTypeName(@Nonnull Type type) {
         Preconditions.checkNotNull(type);
-        return TYPE_MAP.getOrDefault(type, "未知");
+        return TYPE_MAP.getOrDefault(type, "Unknown");
     }
 
 

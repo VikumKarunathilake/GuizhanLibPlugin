@@ -12,20 +12,20 @@ import javax.annotation.Nonnull;
 import java.util.Map;
 
 /**
- * {@link Villager} 相关
+ * {@link Villager} related utilities
  */
 @UtilityClass
 @SuppressWarnings({"ConstantConditions", "unused"})
 public final class VillagerHelper {
 
     private static final Map<Type, String> TYPE_MAP = Map.of(
-        Type.PLAINS, "平原",
-        Type.DESERT, "沙漠",
-        Type.JUNGLE, "丛林",
-        Type.SAVANNA, "热带草原",
-        Type.SNOW, "雪地",
-        Type.SWAMP, "沼泽",
-        Type.TAIGA, "针叶林"
+        Type.PLAINS, "Plains",
+        Type.DESERT, "Desert",
+        Type.JUNGLE, "Jungle",
+        Type.SAVANNA, "Savanna",
+        Type.SNOW, "Snow",
+        Type.SWAMP, "Swamp",
+        Type.TAIGA, "Taiga"
     );
 
     @Nonnull
@@ -43,6 +43,6 @@ public final class VillagerHelper {
     @Nonnull
     public static String getTypeName(@Nonnull Type type) {
         Preconditions.checkNotNull(type);
-        return TYPE_MAP.getOrDefault(type, "未知");
+        return TYPE_MAP.getOrDefault(type, "Unknown");
     }
 }
