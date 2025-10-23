@@ -10,26 +10,26 @@ import javax.annotation.Nonnull;
 import java.util.Map;
 
 /**
- * {@link Panda} 相关
+ * {@link Panda} related utilities
  */
 @UtilityClass
 @SuppressWarnings({"ConstantConditions", "unused"})
 public final class PandaHelper {
 
     private static final Map<Gene, String> VARIANT_MAP = Map.of(
-        Gene.AGGRESSIVE, "好斗",
-        Gene.BROWN, "棕色",
-        Gene.LAZY, "懒惰",
-        Gene.NORMAL, "普通",
-        Gene.PLAYFUL, "顽皮",
-        Gene.WEAK, "虚弱",
-        Gene.WORRIED, "发愁"
+        Gene.AGGRESSIVE, "Aggressive",
+        Gene.BROWN, "Brown",
+        Gene.LAZY, "Lazy",
+        Gene.NORMAL, "Normal",
+        Gene.PLAYFUL, "Playful",
+        Gene.WEAK, "Weak",
+        Gene.WORRIED, "Worried"
     );
 
     @Nonnull
     public static String getGeneName(@Nonnull Gene variant) {
         Preconditions.checkNotNull(variant);
-        return VARIANT_MAP.getOrDefault(variant, "未知");
+        return VARIANT_MAP.getOrDefault(variant, "Unknown");
     }
 
     @Nonnull

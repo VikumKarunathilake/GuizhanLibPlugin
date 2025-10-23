@@ -10,26 +10,26 @@ import javax.annotation.Nonnull;
 import java.util.Map;
 
 /**
- * {@link Rabbit} 相关
+ * {@link Rabbit} related utilities
  */
 @UtilityClass
 @SuppressWarnings({"ConstantConditions", "unused"})
 public final class RabbitHelper {
 
     private static final Map<Type, String> TYPE_MAP = Map.of(
-        Type.BLACK, "黑色",
-        Type.BLACK_AND_WHITE, "黑白相间",
-        Type.BROWN, "褐色",
-        Type.GOLD, "金色",
-        Type.SALT_AND_PEPPER, "胡椒盐色",
-        Type.THE_KILLER_BUNNY, "杀手兔",
-        Type.WHITE, "白色"
+        Type.BLACK, "Black",
+        Type.BLACK_AND_WHITE, "Black and White",
+        Type.BROWN, "Brown",
+        Type.GOLD, "Gold",
+        Type.SALT_AND_PEPPER, "Salt and Pepper",
+        Type.THE_KILLER_BUNNY, "The Killer Bunny",
+        Type.WHITE, "White"
     );
 
     @Nonnull
     public static String getTypeName(@Nonnull Type type) {
         Preconditions.checkNotNull(type);
-        return TYPE_MAP.getOrDefault(type, "未知");
+        return TYPE_MAP.getOrDefault(type, "Unknown");
     }
 
     @Nonnull

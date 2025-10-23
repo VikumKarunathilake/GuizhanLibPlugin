@@ -10,24 +10,24 @@ import javax.annotation.Nonnull;
 import java.util.Map;
 
 /**
- * {@link Axolotl} 相关
+ * {@link Axolotl} related utilities
  */
 @UtilityClass
 @SuppressWarnings({"ConstantConditions", "unused"})
 public final class AxolotlHelper {
 
     private static final Map<Variant, String> VARIANT_MAP = Map.of(
-        Variant.LUCY, "粉红色",
-        Variant.WILD, "棕色",
-        Variant.GOLD, "金色",
-        Variant.CYAN, "青色",
-        Variant.BLUE, "蓝色"
+        Variant.LUCY, "Pink",
+        Variant.WILD, "Brown",
+        Variant.GOLD, "Gold",
+        Variant.CYAN, "Cyan",
+        Variant.BLUE, "Blue"
     );
 
     @Nonnull
     public static String getVariantName(@Nonnull Variant variant) {
         Preconditions.checkNotNull(variant);
-        return VARIANT_MAP.getOrDefault(variant, "未知");
+        return VARIANT_MAP.getOrDefault(variant, "Unknown");
     }
 
 
